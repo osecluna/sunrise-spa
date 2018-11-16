@@ -65,6 +65,15 @@ const router = new Router({
       },
       meta: { requiresAuth },
     },
+    {
+      path: '/user/orders',
+      name: 'orders',
+      components: {
+        default: MyAccountPage,
+        header: TheHeader,
+      },
+      meta: { requiresAuth },
+    },
   ],
 });
 
