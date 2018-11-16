@@ -35,6 +35,13 @@ Cypress.Commands.add('signup', (customer) => {
   cy.get('[data-test=signup-form-submit]').click();
 });
 
+Cypress.Commands.add('signin', (customer) => {
+  cy.visit('/login');
+  cy.get('[data-test=login-form-email]').type(customer.email);
+  cy.get('[data-test=login-form-password]').type(customer.password);
+  cy.get('[data-test=login-form-submit]').click();
+});
+
 Cypress.Commands.add('logout', () => {
   cy.get('[data-test=logout-button]').click();
 });
