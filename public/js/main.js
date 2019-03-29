@@ -441,3 +441,18 @@ $(() => {
     $('#my-account-desktop-content').insertAfter('#my-account-mobile-content');
   }
 });
+
+// Load amplience content
+var client = new ampDynamicContent.ContentClient({
+  account: 'ampproduct'
+});
+$div = $( ".home-viewall" ),
+slotId = $div.data('data-amp-slot');
+client.renderContentItem(slotId, 'contentWrapper')
+.then(response => {
+  html = $.parseHTML(response.body);
+  $div.append( html );
+})
+.catch(error => {
+  console.log('unable to find content', error);
+});
