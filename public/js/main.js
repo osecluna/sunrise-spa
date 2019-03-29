@@ -292,8 +292,7 @@ $(document).ready(() => {
 
     if (identifiers) {
       // build a variant key from variant identifiers to get the variant information
-      const variantKey = identifiers.map(identifier =>
-        form.find(`select[name='attribute-${identifier}']`).val()).join('-');
+      const variantKey = identifiers.map(identifier => form.find(`select[name='attribute-${identifier}']`).val()).join('-');
 
       if (reload) {
         window.location = variantMap[variantKey].url;
@@ -442,17 +441,20 @@ $(() => {
   }
 });
 
+
 // Load amplience content
-var client = new ampDynamicContent.ContentClient({
-  account: 'ampproduct'
-});
-$div = $( ".home-viewall" ),
-slotId = $div.data('data-amp-slot');
-client.renderContentItem(slotId, 'contentWrapper')
-.then(response => {
-  html = $.parseHTML(response.body);
-  $div.append( html );
-})
-.catch(error => {
-  console.log('unable to find content', error);
+$(document).ready(() => {
+  const client = new ampDynamicContent.ContentClient({
+    account: 'ampproduct',
+  });
+  const $div = $('.home-viewall');
+  const slotId = $div.data('amp-slot');
+  client.renderContentItem(slotId, 'contentWrapper')
+    .then((response) => {
+      const html = $.parseHTML(response.body);
+      $div.append(html);
+    })
+    .catch((error) => {
+      console.log('unable to find content', error);
+    });
 });
