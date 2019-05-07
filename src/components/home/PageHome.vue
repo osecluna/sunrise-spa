@@ -6,8 +6,7 @@
     <div class="container">
       <!--{{> catalog/home/home-suggestions}}-->
 
-      <div class="home-viewall" data-amp-slot="9198b0b3-ee99-4ad6-9d7d-fc9966abb10a">
-        Home page
+      <div class="home-viewall" data-amp-slot="52f9911c-3be5-4b7f-bbe1-aba698c1d0d3">
         <!--{{> catalog/home/view-products-link}}-->
       </div>
     </div>
